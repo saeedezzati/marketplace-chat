@@ -1,8 +1,8 @@
 
 
-![alt text](https://github.com/jlackback/interview-fullstack/blob/master/screenshot-1.png?raw=true)
+![alt text](https://github.com/markopol0/marketplace-chat/blob/master/screenshot-1.png?raw=true)
 
-![alt text](https://github.com/jlackback/interview-fullstack/blob/master/screenshot-2.png?raw=true)
+![alt text](https://github.com/markopol0/marketplace-chat/blob/master/screenshot-2.png?raw=true)
 
 
 SERVER:
