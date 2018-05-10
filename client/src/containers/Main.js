@@ -7,7 +7,6 @@ import { setAppState } from '../actions/actions'
 const mapStateToProps = (state) => {
   	return {
 		senderID: state.app.senderID,
-	  
 	}
 }
 

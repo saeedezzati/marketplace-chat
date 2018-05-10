@@ -66,6 +66,7 @@ class ItemCardComponent extends Component {
     constructor(props) {
         super(props);
         this.state = { imageLoaded: false };
+        
     }
     componentDidMount() {		    
         const { dispatch  } = this.props;		 
@@ -77,26 +78,28 @@ class ItemCardComponent extends Component {
         
     }
     handleImageLoaded = () => {
+        const { counter,  setAppState } = this.props;		 
         this.setState({ imageLoaded: true });
     }
     render(){
         const { classes, item} = this.props        
 
         return (
-            <div to={'/'+ item.id} className={classes.root}>
-                <Link to={'/'+ item.id} >
-                    <img src={item.key_image} alt={item.name} onLoad={this.handleImageLoaded} className={classes.card} />
-                </Link>
-                {this.state.imageLoaded &&
-                    <React.Fragment>
-                        <Typography className={classes.rentPrice}>
-                            ${item.rent_price_day/100}/day
-                        </Typography>
-                        <ChatBubble className={classes.chatBubble} onClick={this.handleChatBubbleClick}/>
-                        <Avatar src={item.owner.avatar} alt={item.owner.first_name + '_' + item.owner.last_name} className={classes.avatar}/>
-                    </React.Fragment>
-                }
-            </div>
+                <div to={'/'+ item.id} className={classes.root}>
+                    <Link to={'/'+ item.id} >
+                        <img src={item.key_image} alt={item.name} onLoad={this.handleImageLoaded} className={classes.card} />
+                    </Link>
+                    {this.state.imageLoaded &&
+                        <React.Fragment>
+                            <Typography className={classes.rentPrice}>
+                                ${item.rent_price_day/100}/day
+                            </Typography>
+                            <ChatBubble className={classes.chatBubble} onClick={this.handleChatBubbleClick}/>
+                            <Avatar src={item.owner.avatar.replace('large', 'small')} alt={item.owner.first_name + '_' + item.owner.last_name} className={classes.avatar}/>
+                        </React.Fragment>
+                    }
+                </div>
+            
         )
     }
 }

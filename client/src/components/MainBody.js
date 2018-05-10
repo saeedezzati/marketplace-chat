@@ -11,6 +11,7 @@ import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import Avatar from 'material-ui/Avatar';
 import grey from 'material-ui/colors/grey';
+import Slide from 'material-ui/transitions/Slide';
 
 import items  from "./items.json";
 
@@ -51,6 +52,7 @@ const styles = theme => ({
 
 })
 class MainBody extends Component {
+    
     componentDidMount() {		    
         const { senderID, setAppState, dispatch  } = this.props;		 
         if(!senderID){
@@ -58,7 +60,7 @@ class MainBody extends Component {
         }
     }
     render(){
-        const {senderID,classes} = this.props
+        const {senderID,firstTwentyImagesLoaded,classes} = this.props
         
         return (
             <div className={classes.root}>
@@ -69,23 +71,29 @@ class MainBody extends Component {
                             <Avatar style={{backgroundColor:'#'+senderID}}  className={classes.senderAvatar}>{senderID.slice(0,2)}</Avatar>
                         </Grid>
                     }
+                    
                     <Grid item xs={6} className={classes.body}>
-                        <Grid container spacing={0} direction={'row'} justify={'flex-start'} alignItems={'flex-start'} className={classes.itemList}>
-                            {items.slice(0,100).map((item,index) => {
-                                if(item.rent_price_day){
-                                    return(
-                                        <Grid key={index} item xs={3} className={classes.item}>
-                                            <ItemCard item={item} />
-                                        </Grid>
-                                    )
-                                }
-                            })}
-                        </Grid>
-                            
+                        <Slide direction="up" in={true} timeout={400} >
+                            <React.Fragment>
+                                <Grid container spacing={0} direction={'row'} justify={'flex-start'} alignItems={'flex-start'} className={classes.itemList}>
+                                    {items.slice(0,100).map((item,index) => {
+                                        if(item.rent_price_day){
+                                            return(
+                                                <Grid key={index} item xs={3} className={classes.item}>
+                                                    <ItemCard item={item} />
+                                                </Grid>
+                                            )
+                                        }
+                                    })}
+                                </Grid>
+                            </React.Fragment>
+                        </Slide>
+                                
                     </Grid>
                     
                 </Grid>
             </div>
+            
         )
     }
 }
