@@ -150,7 +150,7 @@ class ChatDialogComponent extends Component {
         return (
             <Dialog onClose={this.handleClose} onEntered={this.handleEntered} open={chatDialogIsOpen}  className={classes.root}>
                 <DialogTitle className={classes.dialogTitle}>
-                    <Avatar src={chatItem.key_image} alt={chatItem.name} className={classes.itemAvatar}/>
+                    <Avatar src={chatItem.key_image+'?h=120&w=120&dpr=2'} alt={chatItem.name} className={classes.itemAvatar}/>
                     <Typography className={classes.itemName}>
                         {chatItem.name}
                     </Typography>

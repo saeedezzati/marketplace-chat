@@ -87,7 +87,7 @@ class ItemCardComponent extends Component {
         return (
                 <div to={'/'+ item.id} className={classes.root}>
                     <Link to={'/'+ item.id} >
-                        <img src={item.key_image} alt={item.name} onLoad={this.handleImageLoaded} className={classes.card} />
+                        <img src={item.key_image + '?h=220&w=220&dpr=2'} alt={item.name} onLoad={this.handleImageLoaded} className={classes.card} />
                     </Link>
                     {this.state.imageLoaded &&
                         <React.Fragment>
@@ -95,7 +95,7 @@ class ItemCardComponent extends Component {
                                 ${item.rent_price_day/100}/day
                             </Typography>
                             <ChatBubble className={classes.chatBubble} onClick={this.handleChatBubbleClick}/>
-                            <Avatar src={item.owner.avatar.replace('large', 'small')} alt={item.owner.first_name + '_' + item.owner.last_name} className={classes.avatar}/>
+                            <Avatar src={item.owner.avatar.replace('large', 'small')+ (item.owner.avatar.includes('imgix.net') ? '?h=120&w=120&dpr=2' : '')} alt={item.owner.first_name + '_' + item.owner.last_name} className={classes.avatar}/>
                         </React.Fragment>
                     }
                 </div>
