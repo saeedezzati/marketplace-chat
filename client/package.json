@@ -11,7 +11,7 @@
     "debug": "^3.1.0",
     "express": "^4.16.3",
     "konva": "^2.0.3",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.21",
     "material-ui": "^1.0.0-beta.42",
     "material-ui-icons": "^1.0.0-beta.36",
     "morgan": "^1.9.0",
